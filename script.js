@@ -2,7 +2,7 @@ class Coach {
     constructor(name, specialization, rating){
         this.name = name;
         this.specialization = specialization;
-        this.rating = rating
+        this.rating = rating;
     }
     
     displayInfo() {
