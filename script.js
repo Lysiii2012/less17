@@ -1,19 +1,36 @@
-class Coach {
-    constructor(name, specialization, rating){
-        this.name = name;
-        this.specialization = specialization;
-        this.rating = rating
+class BankAccount {
+    constructor(balance) {
+        this.balance = balance;
     }
+ 
+    getBalance() {
+        return this.balance;
+    }
+
+    deposit(amount) {
+        if (amount > 0) {
+            this.balance += amount;
+        } else {
+            console.log("Сума внесення депозиту повинна бути більше 0");
+        }
+    }
+
+    withdraw(amount) {
+        if (amount > 0 && amount <= this.balance) {
+            this.balance -= amount;
+        } else if (amount <= 0) {
+            console.log("Сума зняття повинна бути більше 0");
+        } else if (amount > this.balance) {
+            console.log("На рахунку недостатньо коштів");
+        }
+    }
+}
     
-    displayInfo() {
-        console.log(`Coach: ${this.name}, Specialization: ${this.specialization}, Rating: ${this.rating}`)
-    } 
-   }
-   
-   const coach1 = new Coach('John Doe', 'Fitness', 4.7);
-   
-   const coach2 = new Coach('Alice Smith', 'Yoga', 4.9);
-   
-   coach1.displayInfo(); 
-   
-   coach2.displayInfo();  
+const account1 = new BankAccount(1000);
+console.log(account1.getBalance()); 
+
+account1.deposit(500);
+console.log(account1.getBalance());  
+
+account1.withdraw(200);
+console.log(account1.getBalance());  
